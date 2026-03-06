@@ -1,0 +1,198 @@
+.schedule-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 3rem 4rem;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+.schedule-header-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-family: var(--font-family-heading);
+}
+
+.title-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+}
+
+.schedule-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.view-tabs {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.view-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.view-tab:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.view-tab.active {
+    background-color: rgba(51, 154, 240, 0.15);
+    color: var(--accent-hover);
+    font-weight: 500;
+}
+
+.toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.new-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: #2F80ED;
+    color: #fff;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.new-btn:hover {
+    background-color: #2D75D8;
+}
+
+/* Sort Selector */
+.sort-selector {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.sort-selector:hover {
+    border-color: var(--accent-color);
+    color: var(--text-primary);
+}
+
+.sort-select {
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+    padding-right: 4px;
+}
+
+.sort-select option {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.schedule-content {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Badge Styles */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.badge-red {
+    background-color: rgba(255, 82, 82, 0.15);
+    color: #FF5252;
+}
+
+.badge-yellow {
+    background-color: rgba(255, 213, 79, 0.15);
+    color: #FFD54F;
+}
+
+.badge-blue {
+    background-color: rgba(100, 181, 246, 0.15);
+    color: #64B5F6;
+}
+
+.badge-gray {
+    background-color: rgba(158, 158, 158, 0.15);
+    color: #9E9E9E;
+}
+
+.badge-blue-bg {
+    background-color: rgba(41, 182, 246, 0.2);
+    color: #4FC3F7;
+}
+
+.badge-green-bg {
+    background-color: rgba(102, 187, 106, 0.15);
+    color: #81C784;
+}
+
+.badge-purple-bg {
+    background-color: rgba(171, 71, 188, 0.15);
+    color: #BA68C8;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}

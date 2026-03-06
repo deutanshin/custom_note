@@ -1,0 +1,43 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: memo_db
+    environment:
+      POSTGRES_USER: memo_user
+      POSTGRES_PASSWORD: memo_password
+      POSTGRES_DB: memo_custom
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U memo_user -d memo_custom"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: memo_backend
+    environment:
+      PORT: 4000
+      DATABASE_URL: "postgresql://memo_user:memo_password@db:5432/memo_custom?schema=public"
+      JWT_SECRET: "change-this-to-a-secure-random-string"
+    ports:
+      - "4000:4000"
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: memo_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  pgdata:

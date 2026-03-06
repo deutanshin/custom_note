@@ -1,0 +1,117 @@
+.board-container {
+    display: flex;
+    gap: 1.5rem;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 1rem;
+}
+
+.board-column {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.column-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-todo {
+    color: var(--text-secondary);
+}
+
+.header-inprogress {
+    color: #64B5F6;
+}
+
+.header-done {
+    color: #81C784;
+}
+
+.column-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.02);
+    border: 1px dashed transparent;
+    padding: 0.5rem;
+    border-radius: 8px;
+    min-height: 300px;
+    overflow-y: auto;
+    transition: background-color 0.2s;
+}
+
+.column-content.is-over {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.board-card {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    cursor: grab;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: box-shadow 0.2s;
+}
+
+.board-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.board-card:active {
+    cursor: grabbing;
+}
+
+.card-title {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.card-meta {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.new-card-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.6rem;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.new-card-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-primary);
+}
