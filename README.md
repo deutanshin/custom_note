@@ -67,7 +67,7 @@ cd memo_custom
 | `POSTGRES_PASSWORD` | `memo_password` | DB 비밀번호 |
 | `POSTGRES_DB` | `memo_custom` | DB 이름 |
 | `JWT_SECRET` | `change-this-to-...` | **⚠️ 반드시 변경 권장** |
-| Frontend 포트 | `80:80` | 웹 접속 포트 |
+| Frontend 포트 | `37821:80` | 웹 접속 포트 |
 
 > ⚠️ **보안 주의**: `JWT_SECRET`은 반드시 랜덤한 안전한 문자열로 변경하세요.
 >
@@ -94,7 +94,7 @@ docker compose up -d --build
 브라우저에서 접속:
 
 ```
-http://localhost
+http://localhost:37821
 ```
 
 > 포트를 변경한 경우: `http://localhost:<변경한_포트>`
@@ -133,7 +133,8 @@ docker compose up -d --build
 
 ## 🛠️ 로컬 개발 모드 (Docker 없이)
 
-로컬에서 개발할 때는 Docker 대신 직접 실행할 수 있습니다.
+> ℹ️ **포트 안내**: Docker 배포 시 프론트엔드는 `37821`, 백엔드는 `38492`, DB는 `39156` 포트를 사용합니다.
+> 로컬 개발 시에는 `22223`(백엔드), `22222`(프론트엔드) 포트를 사용합니다.
 
 ### 1. DB 실행 (Docker로 DB만)
 ```bash
@@ -146,8 +147,8 @@ cd backend
 npm install
 
 # .env 파일 생성
-echo 'PORT=4000' > .env
-echo 'DATABASE_URL="postgresql://memo_user:memo_password@localhost:5432/memo_custom?schema=public"' >> .env
+echo 'PORT=22223' > .env
+echo 'DATABASE_URL="postgresql://memo_user:memo_password@localhost:39156/memo_custom?schema=public"' >> .env
 echo 'JWT_SECRET="dev-secret-key"' >> .env
 
 # DB 마이그레이션
@@ -164,8 +165,8 @@ npm install
 npm run dev
 ```
 
-프론트엔드: `http://localhost:22222`  
-백엔드 API: `http://localhost:4000`
+프론트엔드: `http://localhost:22222`
+백엔드 API: `http://localhost:22223`
 
 ---
 
@@ -202,6 +203,6 @@ docker compose logs db
 `docker-compose.yml`에서 포트 번호를 변경하세요:
 ```yaml
 ports:
-  - "8080:80"     # 프론트엔드를 8080으로 변경
-  - "4001:4000"   # 백엔드를 4001로 변경
+  - "41000:80"     # 프론트엔드를 41000으로 변경
+  - "41001:4000"   # 백엔드를 41001로 변경
 ```
